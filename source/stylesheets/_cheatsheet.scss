@@ -1,0 +1,63 @@
+.cheatsheet {
+  &__container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__sections {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    justify-content: space-between;
+
+    li {
+      width: 100%;
+      margin-bottom: 20px;
+
+      @include bp(min-width, $bp-large + 1) {
+        width: calc(33.33% - 20px);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__section-title {
+    margin: 0;
+    padding: 10px;
+    background: $c-white;
+
+    button {
+      position: relative;
+      width: calc(100% + 20px);
+      margin: -10px;
+      padding: 20px;
+      padding-left: 30px;
+      background: transparent;
+      border: 0;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:before {
+        content: '+';
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        color: $c-alto;
+        transform: translateY(-50%);
+      }
+
+      &[aria-expanded="true"]:before {
+        content: '-';
+      }
+    }
+  }
+
+  &__section-desc {
+    padding: 20px;
+    background-color: $c-white;
+    border-top: 2px solid $c-wild-sand;
+  }
+}

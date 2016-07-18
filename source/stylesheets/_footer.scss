@@ -1,0 +1,60 @@
+.site-footer {
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 0 1px;
+    text-decoration: none;
+    color: $c-magento-orange;
+    border-bottom: 0;
+    text-shadow: .03em 0 $c-white,
+                -.03em 0 $c-white,
+                0 .03em $c-white,
+                0 -.03em $c-white,
+                .06em 0 $c-white,
+                -.06em 0 $c-white,
+                .09em 0 $c-white,
+                -.09em 0 $c-white,
+                .12em 0 $c-white,
+                -.12em 0 $c-white,
+                .15em 0 $c-white,
+                -.15em 0 $c-white;
+    transition: color ease 0.3s;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      background-color: $c-magento-orange;
+      z-index: -1;
+      height: 2px;
+    }
+
+    &::before {
+      width: 0%;
+      left: 0;
+      bottom: 0;
+      transition: width ease 0.4s;
+    }
+
+    &::after {
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      transition: all ease 0.6s;
+    }
+
+    @include hover {
+      &::before {
+        width: 100%;
+      }
+
+      &::after {
+        left: 100%;
+        width: 0%;
+        transition: all ease 0.2s;
+      }
+    }
+  }
+}
